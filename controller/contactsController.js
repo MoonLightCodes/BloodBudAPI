@@ -35,10 +35,27 @@ const postContact = asyncHandler(async (req, res) => {
     phone,
     bloodgroup,
   });
-  res.status(201).send(contact);
+  res.status(201).json({message:"Successfully updated!"});
+});
+
+
+const deleteContact= asyncHandler(async (req,res)=>{
+  const {email} = req.body;
+  if(!email){
+    res.status(400);
+    throw new Error('All Feilds Are Mandatory');
+  }
+  const contact = await contacts.findOne({email:email});
+  if(!contact){
+    res.status(400);
+    throw new Error("No Contact Exist On this EMAIL!")
+  }
+  await contacts.deleteOne({email});
+  res.status(200).json({message:"Deleted Sucessfully!"})
 });
 
 module.exports = {
   getContacts,
   postContact,
+  deleteContact,
 };
