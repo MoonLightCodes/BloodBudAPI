@@ -38,7 +38,10 @@ const postContact = asyncHandler(async (req, res) => {
   res.status(201).json({message:"Successfully updated!"});
 });
 
-
+//@Discription Delete the contact
+//@Path /delete
+//@Method DELETE
+//@Access Public
 const deleteContact= asyncHandler(async (req,res)=>{
   const {email} = req.body;
   if(!email){
