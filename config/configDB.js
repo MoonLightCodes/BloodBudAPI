@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-mongoose.connect('mongodb+srv://user:user@user-data.rlu3qiz.mongodb.net/?retryWrites=true&w=majority&appName=user-data');
+mongoose.connect('mongodb+srv://admin:admin@bloodbuddb.csmvuk1.mongodb.net/?retryWrites=true&w=majority&appName=bloodbudDB');
 
 
 mongoose.connection.on('connected', () => {
